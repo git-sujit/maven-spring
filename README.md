@@ -1,1 +1,1 @@
-#Creating a simple Spring Java application
+# Basic Spring Java application
