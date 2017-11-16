@@ -1,2 +1,1 @@
-# maven-spring
-Learn basics of maven and spring
+#Creating a simple Spring Java application
