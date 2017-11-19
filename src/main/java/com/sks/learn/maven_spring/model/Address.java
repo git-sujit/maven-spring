@@ -1,19 +1,23 @@
 package com.sks.learn.maven_spring.model;
 
-public class Address {
+import org.springframework.beans.factory.DisposableBean;
+import org.springframework.beans.factory.InitializingBean;
+
+public class Address implements InitializingBean, DisposableBean {
 	private String city;
 	private String state;
 	private int zip;
 
-	public Address(){
-		
+	public Address() {
+
 	}
-	public Address(String city, String state, int zip){
+
+	public Address(String city, String state, int zip) {
 		this.city = city;
 		this.state = state;
 		this.zip = zip;
 	}
-	
+
 	public String getCity() {
 		return city;
 	}
@@ -40,6 +44,17 @@ public class Address {
 
 	@Override
 	public String toString() {
-		return city+", "+state+", "+zip;
+		return city + ", " + state + ", " + zip;
+	}
+
+	@Override
+	public void afterPropertiesSet() throws Exception {
+		System.out.println("Lifecycle Callback Method-Initialization: Address bean is initialized successfully");
+	}
+
+	@Override
+	public void destroy() throws Exception {
+		System.out.println("Lifecycle Callback Method-Destroy: Address bean is going to be destroyed");
+		
 	}
 }

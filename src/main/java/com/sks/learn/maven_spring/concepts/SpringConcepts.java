@@ -7,14 +7,16 @@ public class SpringConcepts {
 		testDependencyInjection();
 	}
 
-	static void testPolymorphism() {
+	public static void testPolymorphism() {
+		System.out.println("\n***********Validate Polymorphism in Object Creation");
 		// At runtime, object determines which method to execute
 		Shape s = new Triangle();
 		s.draw();
 		s = new Circle();
 		s.draw();
 	}
-	static void testDependencyInjection(){
+	public static void testDependencyInjection(){
+		System.out.println("\n***********Use Dependency Injection to Create Object");
 		Drawing d = new Drawing();
 		d.setShape(new Triangle());
 		d.drawShape();

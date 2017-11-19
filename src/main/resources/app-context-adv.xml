@@ -1,20 +1,19 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
-	xmlns:c="http://www.springframework.org/schema/c" xmlns:util="http://www.springframework.org/schema/util"
-	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
 		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.0.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
-	<!-- Setting values Through Setters -->
-	<bean id="customer" class="com.sks.learn.maven_spring.model.Customer">
-		<property name="customerId" value="id-1" />
-		<property name="customerName" value="SKS" />
+	<bean id="parentCustomer" class="com.sks.learn.maven_spring.model.Customer">
 		<property name="address" ref="customerAddress" />
 	</bean>
-	<!-- Setting values through Constructors -->
+	<bean id="customer1" class="com.sks.learn.maven_spring.model.Customer"
+		parent="parentCustomer">
+		<property name="customerId" value="id-1" />
+		<property name="customerName" value="SKS" />
+	</bean>
 	<bean id="customerAddress" class="com.sks.learn.maven_spring.model.Address">
-		<constructor-arg type="java.lang.String" value="Sunnyvale" />
+		<constructor-arg type="java.lang.String" value="Cupertino" />
 		<constructor-arg value="CA" />
-		<constructor-arg type="int" value="94086" />
+		<constructor-arg type="int" value="95014" />
 	</bean>
 </beans>

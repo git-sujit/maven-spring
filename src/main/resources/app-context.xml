@@ -1,0 +1,65 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.0.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd"
+	default-init-method="myInit" default-destroy-method="myCleanup">
+	<!-- Setting values Through Setters -->
+	<bean id="customer" class="com.sks.learn.maven_spring.model.Customer">
+		<property name="customerId" value="id-1" />
+		<property name="customerName" value="SKS" />
+		<!-- Outer Bean -->
+		<property name="address" ref="customerAddress" />
+		<!-- Inner Bean -->
+		<property name="payment">
+			<bean id="customerPayment" class="com.sks.learn.maven_spring.model.Payment"
+				init-method="customInit" destroy-method="customDestroy">
+				<property name="paymentId" value="3473845374378" />
+				<property name="paymentAmount" value="34.78" />
+			</bean>
+		</property>
+		<!-- List -->
+		<property name="orderList">
+			<list>
+				<ref bean="order1" />
+				<ref bean="order2" />
+			</list>
+		</property>
+		<!-- set -->
+		<property name="favColor">
+			<set>
+				<value>Orange</value>
+				<value>yellow</value>
+			</set>
+		</property>
+		<!-- map -->
+		<property name="secretQuestions">
+			<map>
+				<entry key="Mother's Maiden name?" value="AAAA" />
+				<entry key="Place where you met your wife first?" value="BBBB" />
+			</map>
+		</property>
+		<!-- Properties -->
+		<property name="environmentProps">
+			<props>
+				<prop key="dev">dev-abc.com</prop>
+				<prop key="stage">stage-abc.com</prop>
+			</props>
+		</property>
+	</bean>
+	<!-- Setting values through Constructors -->
+	<bean id="customerAddress" class="com.sks.learn.maven_spring.model.Address">
+		<constructor-arg type="java.lang.String" value="Sunnyvale" />
+		<constructor-arg value="CA" />
+		<constructor-arg type="int" value="94086" />
+	</bean>
+	<bean id="order1" class="com.sks.learn.maven_spring.model.Order">
+		<property name="orderNo" value="1111" />
+		<property name="orderAmount" value="376.56" />
+	</bean>
+	<bean id="order2" class="com.sks.learn.maven_spring.model.Order">
+		<property name="orderNo" value="2222" />
+		<property name="orderAmount" value="2742.45" />
+	</bean>
+	<alias name="customerAddress" alias="customerAddress-alias" />
+</beans>
