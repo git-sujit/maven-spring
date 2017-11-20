@@ -30,6 +30,7 @@
 			<set>
 				<value>Orange</value>
 				<value>yellow</value>
+				<value>${favcolor.red}</value>
 			</set>
 		</property>
 		<!-- map -->
@@ -44,6 +45,7 @@
 			<props>
 				<prop key="dev">dev-abc.com</prop>
 				<prop key="stage">stage-abc.com</prop>
+				<prop key="prod">${env.prod}</prop>
 			</props>
 		</property>
 	</bean>
@@ -62,4 +64,14 @@
 		<property name="orderAmount" value="2742.45" />
 	</bean>
 	<alias name="customerAddress" alias="customerAddress-alias" />
+	<!-- BeanPostProcessor -->
+	<bean class="com.sks.learn.maven_spring.concepts.CustomBeanPostProcessorDemo" />
+	<!-- BeanFactoryPostProcessor -->
+	<bean
+		class="com.sks.learn.maven_spring.concepts.CustomBeanFactoryPostProcessor" />
+	<!-- Setting properties thru bean factory post processor -->
+	<bean
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="locations" value="dev.properties" />
+	</bean>
 </beans>

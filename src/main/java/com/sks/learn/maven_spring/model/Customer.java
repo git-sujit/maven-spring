@@ -140,12 +140,12 @@ public class Customer implements ApplicationContextAware, BeanNameAware, Initial
 
 	@Override
 	public void afterPropertiesSet() throws Exception {
-		System.out.println("Lifecycle Callback Method: Customer bean is initialized successfully");
+		System.out.println("Lifecycle Callback Method-Initialization: Customer bean is initialized successfully");
 
 	}
 
 	@Override
 	public void destroy() throws Exception {
-		System.out.println("Lifecycle Callback Method: Customer bean is going to be destroyed");
+		System.out.println("Lifecycle Callback Method-Destroy: Customer bean is going to be destroyed");
 	}
 }

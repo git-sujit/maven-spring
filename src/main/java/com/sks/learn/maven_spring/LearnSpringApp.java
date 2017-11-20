@@ -3,10 +3,10 @@ package com.sks.learn.maven_spring;
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.xml.XmlBeanFactory;
 import org.springframework.context.ApplicationContext;
-import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.core.io.FileSystemResource;
 
+import com.sks.learn.maven_spring.annons.AnnonCustomer;
 import com.sks.learn.maven_spring.model.Address;
 import com.sks.learn.maven_spring.model.Customer;
 
@@ -55,8 +55,7 @@ public class LearnSpringApp {
 
 	public void springInheritanceDemo() {
 		System.out.println("\n***********Spring Inheritance Demo");
-		ApplicationContext context = null;
-		context = new ClassPathXmlApplicationContext("app-context-adv.xml");
+		ApplicationContext context = new ClassPathXmlApplicationContext("app-context-adv.xml");
 		Customer cust = (Customer) context.getBean("customer1");
 		System.out.println("Customer = " + cust);
 		// Avoid resource leak: Context never closed warning
@@ -64,9 +63,14 @@ public class LearnSpringApp {
 		// which defines close() method:
 		((ClassPathXmlApplicationContext) context).close();
 	}
-	
-	public void springLifecycleCallbacks(){
+
+	public void springLifecycleCallbacks() {
 		System.out.println("\n***********Spring Lifecycle Callbacks");
-		
+	}
+
+	public void springAnnotationsDemo() {
+		System.out.println("\n***********Spring Annotations Demo");
+		ApplicationContext context = new ClassPathXmlApplicationContext("app-context-annotations.xml");
+		AnnonCustomer aCust = (AnnonCustomer) context.getBean("annonCustomer");
 	}
 }

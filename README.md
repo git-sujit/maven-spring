@@ -1,4 +1,4 @@
-# Spring Framework is good for(Manages Lifecycle of Object)
+# Spring Framework 	(Manages Lifecycle of Object)
 	- Dependency Injection or Dependency Inversion
 	- Leverages polymorphism to create object at run time
 	- Spring is container of beans similar to Tomcat as Servlet container
@@ -17,11 +17,10 @@
 	1. Through Setters: Define setters/getters in Java Bean && <property name="customerId" value="id-1" /> in beans.xml
 	2. Through Constructors: Define constructor in Java Bean && <constructor-arg value="Sunnyvale" />
 	- Spring does data type conversion intelligently. Spring reads config xml and it understans to match to String/int datatypes etc
-# Inner Bean, Alias, Idref
+# Inner Bean, Alias, IdRef
 	- Inner Bean: Bean defined under another bean in case this bean is used by only this bean
 	- <alias> tag, to have another name for bean. 
 	- Better to use Id and not name while creating bean because id is unique and validated by Spring but name is not validated
-
 # Collection support for collection
 	- <list> tag ~ java.util.List
 	- <set> tag  ~ java.util.Set
@@ -55,10 +54,22 @@
 		- If we do both(Implement interface & define init-method/destroy-method in bean defn) 
 			then first callback method is invoked then custom method is invoked
 		- global level init/destroy methods: define at beans/default-init-method & default-destroy-method  
-		
+# BeanPostProcessor
+	- Tells spring to do something after bean is initialized
+	- A single method runs for all the beans, no matter how many types of bean we have
+	- Bean Post Processor is a separate class which implements BeanPostProcessor
+	- IN Bean config xml mention the bean post processor class
+	- There are no common method for printing just before destroy
+	- properties through PropertyPlaceholderConfigurer beanFactoryPostProcesseor class
+		- Put properties in separate file
+		- Mention PropertyPlaceholderConfigurer and location of prop file in beans config xml
+# Annotation based container configuration
+	- define component-scan in bean config xml
+	- put @Component at class level and bean-id is class-name(Animal) having lowercase first letter(animal)
+	- @Component is stereotype. Other stereotypes are: @Service, @Repository, @Controller			
 #JUNIT: @Test Vs extends TestCase
 	- JUnit3 style: extends Test
-		Create a class that extends TestCase, and start test methods with the word test. 
+		Create a class that extends TestCase, and start test methods with the word test. 	
 		When running the class as a JUnit Test (in Eclipse), 
 		all methods starting with the word test are automatically run
 	- JUnit4 style: @Test annotation

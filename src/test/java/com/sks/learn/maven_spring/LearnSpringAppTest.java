@@ -31,4 +31,11 @@ public class LearnSpringAppTest {
 		LearnSpringApp obj = new LearnSpringApp();
 		obj.springInheritanceDemo();
 	}
+
+	@Test
+	public void validateAnnotations() {
+		System.out.println("###################### SPRING ANNOTATIONS / JSR 250 ANNOTATIONS ########################");
+		LearnSpringApp obj = new LearnSpringApp();
+		obj.springAnnotationsDemo();
+	}
 }
