@@ -38,4 +38,11 @@ public class LearnSpringAppTest {
 		LearnSpringApp obj = new LearnSpringApp();
 		obj.springAnnotationsDemo();
 	}
+
+	@Test
+	public void validateEventHandler() {
+		System.out.println("###################### SPRING EVENT HANDLER ########################");
+		LearnSpringApp obj = new LearnSpringApp();
+		obj.springEventHandlerDemo();
+	}
 }

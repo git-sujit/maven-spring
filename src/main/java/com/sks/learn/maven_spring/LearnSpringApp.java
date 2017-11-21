@@ -71,6 +71,21 @@ public class LearnSpringApp {
 	public void springAnnotationsDemo() {
 		System.out.println("\n***********Spring Annotations Demo");
 		ApplicationContext context = new ClassPathXmlApplicationContext("app-context-annotations.xml");
-		AnnonCustomer aCust = (AnnonCustomer) context.getBean("annonCustomer");
+		// AnnonCustomer aCust = (AnnonCustomer)
+		// context.getBean("annonCustomer");
+		// System.out.println("AnnonCustomer = " + aCust);
+		// Avoid resource leak: Context never closed warning
+		// Downcast your ApplicationContext to ConfigurableApplicationContext
+		// which defines close() method:
+		((ClassPathXmlApplicationContext) context).close();
+	}
+
+	public void springEventHandlerDemo() {
+		System.out.println("\n***********Spring Event Handler Demo");
+		ApplicationContext context = new ClassPathXmlApplicationContext("app-context-annotations.xml");
+		// Avoid resource leak: Context never closed warning
+		// Downcast your ApplicationContext to ConfigurableApplicationContext
+		// which defines close() method:
+		((ClassPathXmlApplicationContext) context).close();
 	}
 }

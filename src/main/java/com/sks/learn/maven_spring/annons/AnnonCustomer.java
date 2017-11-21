@@ -6,6 +6,7 @@ import org.springframework.stereotype.Component;
 public class AnnonCustomer {
 	private String customerId;
 	private String customerName;
+	private AnnonAddress address;
 
 	public String getCustomerId() {
 		return customerId;
@@ -23,4 +24,16 @@ public class AnnonCustomer {
 		this.customerName = customerName;
 	}
 
+	public AnnonAddress getAddress() {
+		return address;
+	}
+
+	public void setAddress(AnnonAddress address) {
+		this.address = address;
+	}
+
+	@Override
+	public String toString() {
+		return customerId + ":" + customerName + ", Address=" + address;
+	}
 }
